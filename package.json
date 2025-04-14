@@ -1,0 +1,17 @@
+{
+  "name": "ia-spotify",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "tailwindcss": "tailwindcss -i ./static/css/input.css -o ./static/css/output.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "prettier-plugin-jinja-template": "^2.0.0",
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "tailwindcss": "3"
+  }
+}
