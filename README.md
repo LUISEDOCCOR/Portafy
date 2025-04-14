@@ -1,5 +1,3 @@
-¡Claro! Aquí tienes todo en un solo bloque de código Markdown:
-
 # ⚡ Flask + TailwindCSS Starter Template
 🚀 Built by **Luis Eduardo Ocegueda Cortés**
 
