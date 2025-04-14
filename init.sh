@@ -12,7 +12,7 @@ echo "📦 Installing Node/Yarn dependencies..."
 yarn install
 
 echo "🌬️ Starting TailwindCSS watcher..."
-yarn dev &
+yarn tailwindcss &
 
 echo "🚀 Launching Flask app..."
 python main.py
