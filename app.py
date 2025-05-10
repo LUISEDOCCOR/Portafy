@@ -1,9 +1,9 @@
-from flask import Flask, render_template
-from routes.auth_routes import bp as bp_auth
+from flask import Flask
+from routes import register_routes
+from dotenv import load_dotenv
 
-app = Flask(__name__)
-app.register_blueprint(bp_auth)
-
-@app.get("/")
-def index():
-    return render_template('/pages/index.html')
+def create_app ():
+    load_dotenv()
+    app = Flask(__name__)
+    register_routes(app)
+    return app
