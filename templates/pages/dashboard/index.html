@@ -1,1 +1,36 @@
-{% extends "layouts/dashboard_layout.html" %}
+{% from "macros/link_macro.html" import render_link %}
+{% extends "layouts/dashboard_layout.html" %} {% block content %}
+<main class="space-y-4">
+    <section class="flex items-center gap-6">
+        <div class="flex items-center gap-2">
+            <h2 class="text-xl font-semibold">Mis Páginas</h2>
+            <i class="fa-solid fa-earth-americas text-neutral-600"></i>
+        </div>
+        {{ render_link("", "Crear", "fa-solid fa-plus") }}
+    </section>
+    <section class="text-sm font-mono text-neutral-600 space-y-3">
+        <p>
+            Asegúrate de que la <b>información</b> que compartes <b>sea real y precisa.</b>
+            Recuerda que este portafolio puede ser visto por reclutadores,
+            colegas y otros profesionales. <b>¡Cuida tu reputación digital!</b>
+        </p>
+        <p>
+            <b>Portafy aún está en desarrollo.</b>
+            Aunque trabajamos para que todo funcione bien, <b>pueden ocurrir errores o fallos inesperados.</b>
+            Si necesitas un portafolio para un uso profesional inmediato, te recomendamos crear uno por tu cuenta o
+            usar herramientas más consolidadas.
+        </p>
+    </section>
+    <section>
+        {% if pages|length > 0 %}
+            <ul>
+                {% for page in pages %}
+                <li></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <span role="alert" class="text-lg font-semibold">Aún no tienes ninguna página.</span>
+        {% endif %}
+    </section>
+</main>
+{% endblock %}

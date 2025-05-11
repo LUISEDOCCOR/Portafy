@@ -23,7 +23,7 @@ class AuthController:
                 else:
                     new_user_id = UserModel.create(email, password)
                     session["user_email"] = email
-                    session["user_id"] = new_user_id
+                    session["user_id"] = str(new_user_id)
                     return redirect(url_for("dashboard.home_page"))
             except:
                 flash("Hubo un error de nuestra parte; intenta más tarde.")

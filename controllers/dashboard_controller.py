@@ -5,7 +5,8 @@ class DashBoardController:
     def global_variables (cls):
         return {
             "user_email": session["user_email"],
-            "user_id": session["user_id"]
+            "user_id": session["user_id"],
+            "pages": []
         }
 
     @classmethod
