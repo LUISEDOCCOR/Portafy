@@ -25,4 +25,14 @@
         {% block children %}
         {% endblock children %}
     </body>
+    <div class="toast toast-end">
+      {% with messages = get_flashed_messages() %} {% if messages %}
+      <div class="alert alert-warning">
+        <script>
+          var notyf = new Notyf();
+          notyf.error("{{ messages[0] }}");
+        </script>
+      </div>
+      {% endif %} {% endwith %}
+    </div>
 </html>

@@ -1,0 +1,14 @@
+{% from "macros/link_macro.html" import render_link  %}
+{% extends "layouts/main_layout.html" %} {% block children %}
+<div class="max-w-5xl mx-auto mt-12">
+    <header>
+        <nav class="flex justify-between items-center">
+            <a href="{{ url_for('pages.home_page') }}" class="text-xl font-semibold">Portafy</a>
+            <ul class="text-md flex gap-2 items-center">
+                <li><a href="">{{ user_email }}</a></li>
+                <li>{{ render_link(url_for("auth.logout"), "Cerrar sesión") }}</li>
+            </ul>
+        </nav>
+    </header>
+</div>
+{% endblock %}
