@@ -1,0 +1,22 @@
+{% from "macros/input_macro.html" import render_input %}
+{% from "macros/button_macro.html" import render_button %}
+{% extends "layouts/dashboard_layout.html" %} {% block content %}
+<main class="space-y-4">
+    <section class="border border-neutral-600 rounded-md p-3 space-y-4 bg-neutral-200">
+        <h2 class="text-lg font-semibold">Información Personal</h2>
+        <div class="grid gap-2 grid-cols-1 lg:grid-cols-2 ">
+            {{ render_input("Titulo página", "title", "title", "tu titulo") }}
+            {{ render_input("Descripción (sólo visible para ti)", "desc", "desc", "Ejemplo 1...") }}
+            <div class="col-span-1 lg:col-span-2">
+                {{ render_input("Biografía corta", "shortBio", "shortBio", "+2 años de experiencia...") }}
+            </div>
+            {{ render_input("Nombre", "name", "name", "Luis Eduardo") }}
+        </div>
+    </section
+    <!-- more ... -->
+    <section>
+        {{ render_button("Crear", "fa-solid fa-circle-plus", "#bt_create") }}
+    </section>
+</main>
+<script defer src="{{ url_for('static', filename='js/dashboard_create.js') }}" ></script>
+{% endblock %}

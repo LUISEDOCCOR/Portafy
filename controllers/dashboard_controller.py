@@ -12,3 +12,7 @@ class DashBoardController:
     @classmethod
     def home_page(cls):
         return render_template("/pages/dashboard/index.html")
+
+    @classmethod
+    def create_page(cls):
+        return render_template("/pages/dashboard/create.html")

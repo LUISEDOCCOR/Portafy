@@ -12,3 +12,8 @@ def global_variables():
 @requires_login
 def home_page():
     return DashBoardController.home_page()
+
+@bp.get("/create")
+@requires_login
+def create_page():
+    return DashBoardController.create_page()
