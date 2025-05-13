@@ -5,12 +5,13 @@ from utils import check_pw, check_email, check_password_validity
 class AuthController:
     @classmethod
     def auth (cls):
+        path_template = "pages/auth.html"
         if request.method == "POST":
             email = request.form.get("email")
             password = request.form.get("password")
             if not check_email(email) or not check_password_validity(password):
                 flash("El correo es inválido o la contraseña es muy corta (min 6 carácteres).")
-                return render_template("pages/auth.html")
+                return render_template(path_template)
             try:
                 user = UserModel.getByEmail(email)
                 if user:
@@ -20,6 +21,7 @@ class AuthController:
                         return redirect(url_for("dashboard.home_page"))
                     else:
                         flash("Datos incorrectos")
+                        return render_template(path_template)
                 else:
                     new_user_id = UserModel.create(email, password)
                     session["user_email"] = email
@@ -27,7 +29,7 @@ class AuthController:
                     return redirect(url_for("dashboard.home_page"))
             except:
                 flash("Hubo un error de nuestra parte; intenta más tarde.")
-        return render_template("pages/auth.html")
+        return render_template(path_template)
 
     @classmethod
     def logout(cls):

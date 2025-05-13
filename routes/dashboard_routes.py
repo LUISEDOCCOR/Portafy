@@ -13,7 +13,7 @@ def global_variables():
 def home_page():
     return DashBoardController.home_page()
 
-@bp.get("/create")
+@bp.route("/create/step/1", methods=["GET", "POST"])
 @requires_login
-def create_page():
-    return DashBoardController.create_page()
+def create_page_step_1():
+    return DashBoardController.create_page_step_1()
