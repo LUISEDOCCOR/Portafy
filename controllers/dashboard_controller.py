@@ -40,7 +40,7 @@ class DashBoardController:
                     return render_template(path_template)
 
                 page_id = PageModel.create_page({
-                    "title": page_title,
+                    "page_title": page_title,
                     "page_desc": page_desc,
                     "user_shortBio": user_shortBio,
                     "user_name": user_name,
