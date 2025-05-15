@@ -607,8 +607,16 @@ video {
   width: 100%;
 }
 
+.w-2\/3 {
+  width: 66.666667%;
+}
+
 .max-w-5xl {
   max-width: 64rem;
+}
+
+.max-w-3xl {
+  max-width: 48rem;
 }
 
 .grid-cols-1 {

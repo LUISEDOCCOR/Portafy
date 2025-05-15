@@ -13,5 +13,4 @@ class PagesController:
         page = PageModel.get_by_url(url)
         if not page:
             return redirect(url_for("pages.home_page"))
-        print(page)
-        return page["page_title"]
+        return render_template("/pages/user_page.html", page=page)

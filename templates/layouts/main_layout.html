@@ -19,11 +19,17 @@
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         />
-        <title>Portafy</title>
+        <!-- OG -->
+        <meta
+            name="description"
+            content="{% block description %}Con Portafy, diseña unportafolio minimalista que destaca tu trabajo como programador.
+            Solo necesitas registrarte para empezar, sin complicaciones ni distracciones. {%endblock%}"
+        />
+        <title>{% block title %}Portafy{% endblock%}</title>
     </head>
     <body class="px-4 lg:px-0">
         {% block children %}
-        {% endblock children %}
+        {% endblock%}
     </body>
     <div class="toast toast-end">
       {% with messages = get_flashed_messages() %} {% if messages %}
