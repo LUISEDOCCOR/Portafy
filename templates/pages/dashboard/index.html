@@ -1,6 +1,6 @@
 {% from "macros/link_macro.html" import render_link %}
 {% extends "layouts/dashboard_layout.html" %} {% block content %}
-<main class="space-y-4">
+<main class="space-y-8">
     <section class="flex items-center gap-6">
         <div class="flex items-center gap-2">
             <h2 class="text-xl font-semibold">Mis Páginas</h2>
@@ -23,9 +23,13 @@
     </section>
     <section>
         {% if pages|length > 0 %}
-            <ul>
+            <ul class="grid grid-cols-3 gap-4">
                 {% for page in pages %}
-                <li></li>
+                <li class="p-2 rounded-md border border-neutral-600">
+                    <span class="font-semibold">{{ page.title }}</span>
+                    <p class="font-mono text-sm">{{ page.page_desc }}</p>
+                    <a href="" class="underline text-sm">/{{page.page_url}}</a>
+                </li>
                 {% endfor %}
             </ul>
         {% else %}

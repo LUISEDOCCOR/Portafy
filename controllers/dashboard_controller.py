@@ -1,5 +1,7 @@
-from flask import render_template, session, request, flash
+from flask import render_template, session, request, flash, redirect, url_for
 import re
+from bson import ObjectId
+from models.page_model import PageModel
 
 class DashBoardController:
     @classmethod
@@ -7,7 +9,7 @@ class DashBoardController:
         return {
             "user_email": session["user_email"],
             "user_id": session["user_id"],
-            "pages": []
+            "pages": PageModel.get_by_user_id(ObjectId(session["user_id"]))
         }
 
     @classmethod
@@ -32,6 +34,26 @@ class DashBoardController:
                 flash("La url no puede contener espacios ni caracteres especiales.")
                 return render_template(path_template)
 
+            try:
+                if PageModel.get_by_url(page_url):
+                    flash("Ya existe una página con esa URL")
+                    return render_template(path_template)
 
+                page_id = PageModel.create_page({
+                    "title": page_title,
+                    "page_desc": page_desc,
+                    "user_shortBio": user_shortBio,
+                    "user_name": user_name,
+                    "page_url": page_url,
+                    "user_id": ObjectId(session["user_id"])
+                })
+
+                print(str(page_id))
+
+                return redirect(url_for("dashboard.home_page"))
+                # cambiar al siguente paso, y guardar el id de la pagina
+
+            except:
+                flash("Hubo un error de nuestra parte; intenta más tarde.")
 
         return render_template(path_template)
