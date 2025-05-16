@@ -1,44 +1,43 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link
-            rel="stylesheet"
-            href="{{ url_for('static', filename='css/output.css') }}"
-        />
-        <!-- toast css -->
-        <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css"
-        />
-        <!-- toast js -->
-        <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
-        <!-- icons css -->
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        />
-        <!-- OG -->
-        <meta
-            name="description"
-            content="{% block description %}Con Portafy, diseña unportafolio minimalista que destaca tu trabajo como programador.
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/output.css') }}"
+    />
+    <!-- toast css -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css"
+    />
+    <!-- toast js -->
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+    <!-- icons css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <!-- OG -->
+    <meta
+      name="description"
+      content="{% block description %}Con Portafy, diseña unportafolio minimalista que destaca tu trabajo como programador.
             Solo necesitas registrarte para empezar, sin complicaciones ni distracciones. {%endblock%}"
-        />
-        <title>{% block title %}Portafy{% endblock%}</title>
-    </head>
-    <body class="px-4 lg:px-0">
-        {% block children %}
-        {% endblock%}
-    </body>
-    <div class="toast toast-end">
-      {% with messages = get_flashed_messages() %} {% if messages %}
-      <div class="alert alert-warning">
-        <script>
-          var notyf = new Notyf();
-          notyf.error("{{ messages[0] }}");
-        </script>
-      </div>
-      {% endif %} {% endwith %}
+    />
+    <title>{% block title %}Portafy{% endblock%}</title>
+  </head>
+  <body class="px-4 lg:px-0">
+    {% block children %} {% endblock%}
+  </body>
+  <div class="toast toast-end">
+    {% with messages = get_flashed_messages() %} {% if messages %}
+    <div class="alert alert-warning">
+      <script>
+        var notyf = new Notyf();
+        notyf.error("{{ messages[0] }}");
+      </script>
     </div>
+    {% endif %} {% endwith %}
+  </div>
 </html>

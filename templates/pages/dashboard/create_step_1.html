@@ -1,15 +1,18 @@
-{% from "macros/input_macro.html" import render_input %}
-{% from "macros/button_macro.html" import render_button %}
-{% extends "layouts/dashboard_form_layout.html" %}
-{% block form %}
-    {{ render_input("Titulo página", "page_title", "page_title", "tu titulo") }}
-    {{ render_input("Descripción (sólo visible para ti)", "page_desc", "page_desc", "Ejemplo 1...") }}
-    <div class="col-span-1 lg:col-span-2">
-        {{ render_input("Biografía corta", "user_shortBio", "user_shortBio", "+2 años de experiencia...") }}
-    </div>
-    {{ render_input("Nombre", "user_name", "user_name", "Luis Eduardo") }}
-    {{ render_input("URL", "page_url", "page_url", "/tu-url") }}
-    <div class="col-span-1 flex justify-end mt-2 lg:mt-4 lg:justify-start lg:col-span-2">
-        {{ render_button("Continuar", "fa-solid fa-circle-plus") }}
-    </div>
+{% from "macros/input_macro.html" import render_input %} {% from
+"macros/button_macro.html" import render_button %} {% extends
+"layouts/dashboard_form_layout.html" %} {% block form %} {{ render_input("Titulo
+página", "page_title", "page_title", "tu titulo") }} {{
+render_input("Descripción (sólo visible para ti)", "page_desc", "page_desc",
+"Ejemplo 1...") }}
+<div class="col-span-1 lg:col-span-2">
+  {{ render_input("Biografía corta", "user_shortBio", "user_shortBio", "+2 años
+  de experiencia...") }}
+</div>
+{{ render_input("Nombre", "user_name", "user_name", "Luis Eduardo") }} {{
+render_input("URL", "page_url", "page_url", "/tu-url") }}
+<div
+  class="col-span-1 mt-2 flex justify-end lg:col-span-2 lg:mt-4 lg:justify-start"
+>
+  {{ render_button("Continuar", "fa-solid fa-circle-plus") }}
+</div>
 {% endblock %}

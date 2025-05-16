@@ -23,12 +23,35 @@
     </section>
     <section>
         {% if pages|length > 0 %}
-            <ul class="grid grid-cols-3 gap-4">
+            <ul class="grid grid-cols-1 gap-4 md:grid-cols-2">
                 {% for page in pages %}
                 <li class="p-2 rounded-md border border-neutral-600">
-                    <span class="font-semibold">{{ page.title }}</span>
+                    <span class="font-semibold">{{ page.page_title }}</span>
                     <p class="font-mono text-sm">{{ page.page_desc }}</p>
                     <a href="/{{ page.page_url }}" class="underline text-sm">/{{page.page_url}}</a>
+                    <div class="flex mt-2 gap-2">
+                        <a
+                            class="p-2 bg-red-500 text-sm text-white rounded-md hover:opacity-90 transition-opacity"
+                            href=""
+                        >
+                            <i class="fa-solid fa-trash-can"></i>
+                            <span>Borrar</span>
+                        </a>
+                        <a
+                            class="p-2 bg-blue-500 text-sm text-white rounded-md hover:opacity-90 transition-opacity"
+                            href=""
+                        >
+                            <i class="fa-solid fa-pencil"></i>
+                            <span>Editar</span>
+                        </a>
+                        <a
+                            class="p-2 bg-yellow-500 text-sm text-white rounded-md hover:opacity-90 transition-opacity"
+                            href=""
+                        >
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <span>Cambiar a privado</span>
+                        </a>
+                    </div>
                 </li>
                 {% endfor %}
             </ul>

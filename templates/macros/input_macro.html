@@ -1,12 +1,12 @@
 {% macro render_input(label, id, name, placeholder, type="text") %}
 <label for="{{ id }}" class="flex flex-col gap-2">
-    <span>{{ label }}</span>
-    <input
-        name="{{ name }}"
-        type="{{ type }}"
-        placeholder="{{ placeholder }}"
-        class="border border-neutral-600 px-2 py-1 rounded-md"
-        required
-    >
+  <span>{{ label }}</span>
+  <input
+    name="{{ name }}"
+    type="{{ type }}"
+    placeholder="{{ placeholder }}"
+    class="rounded-md border border-neutral-600 px-2 py-1"
+    required
+  />
 </label>
 {% endmacro %}

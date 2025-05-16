@@ -1,10 +1,10 @@
-{% macro render_link(href,label="Comenzar",icon="fa-solid fa-arrow-up-right-from-square") %}
+{% macro render_link(href,label="Comenzar",icon="fa-solid
+fa-arrow-up-right-from-square") %}
 <a
-    href="{{ href  }}"
-    class="inline-flex gap-2 font-mono text-sm text-neutral-600
-    items-center border-2 border-neutral-600 px-2 py-1
-    rounded-md hover:text-black transition-colors">
-    <span>{{ label }}</span>
-    <i class="{{ icon }}"></i>
+  href="{{ href  }}"
+  class="inline-flex items-center gap-2 rounded-md border-2 border-neutral-600 px-2 py-1 font-mono text-sm text-neutral-600 transition-colors hover:text-black"
+>
+  <span>{{ label }}</span>
+  <i class="{{ icon }}"></i>
 </a>
 {% endmacro %}

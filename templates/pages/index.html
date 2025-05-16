@@ -1,15 +1,18 @@
-{% from "macros/link_macro.html" import render_link  %}
-{% extends "layouts/main_layout.html" %} {% block children %}
-<main class="grid place-content-center min-h-screen">
-    <section class="w-full lg:w-1/2 space-y-8">
-        <div class="space-y-6">
-            <h1 class="text-5xl font-semibold leading-sung">Crea tu portafolio de forma simple y rápida.</h1>
-            <p class="text-base font-mono leading-snug">
-                Con Portafy, diseña un <b>portafolio minimalista</b> que destaca tu trabajo como programador.
-                Solo necesitas registrarte para empezar, <b>sin complicaciones ni distracciones.</b>
-            </p>
-        </div>
-        {{ render_link(url_for("auth.auth")) }}
-    </section>
+{% from "macros/link_macro.html" import render_link %} {% extends
+"layouts/main_layout.html" %} {% block children %}
+<main class="grid min-h-screen place-content-center">
+  <section class="w-full space-y-8 lg:w-1/2">
+    <div class="space-y-6">
+      <h1 class="leading-sung text-5xl font-semibold">
+        Crea tu portafolio de forma simple y rápida.
+      </h1>
+      <p class="font-mono text-base leading-snug">
+        Con Portafy, diseña un <b>portafolio minimalista</b> que destaca tu
+        trabajo como programador. Solo necesitas registrarte para empezar,
+        <b>sin complicaciones ni distracciones.</b>
+      </p>
+    </div>
+    {{ render_link(url_for("auth.auth")) }}
+  </section>
 </main>
 {% endblock children %}

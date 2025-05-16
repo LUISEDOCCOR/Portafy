@@ -513,10 +513,20 @@ postcss@^8.4.47:
     picocolors "^1.1.1"
     source-map-js "^1.2.1"
 
-prettier-plugin-jinja-template@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.npmjs.org/prettier-plugin-jinja-template/-/prettier-plugin-jinja-template-2.0.0.tgz"
-  integrity sha512-REZDAcZuOUvMDaPS47/GNRLKvbxh9DO9euXhWA7gJGqTLGzHPK2Z841F8I4bxsR7e2lqnHezkQ8GcWaKekKBVQ==
+prettier-plugin-jinja-template@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/prettier-plugin-jinja-template/-/prettier-plugin-jinja-template-2.1.0.tgz#ea2c83e473a8d12a61b289a1d8f1c591ef09b3a8"
+  integrity sha512-mzoCp2Oy9BDSug80fw3B3J4n4KQj1hRvoQOL1akqcDKBb5nvYxrik9zUEDs4AEJ6nK7QDTGoH0y9rx7AlnQ78Q==
+
+prettier-plugin-tailwindcss@^0.6.11:
+  version "0.6.11"
+  resolved "https://registry.yarnpkg.com/prettier-plugin-tailwindcss/-/prettier-plugin-tailwindcss-0.6.11.tgz#cfacd60c4f81997353ee913e589037f796df0f5f"
+  integrity sha512-YxaYSIvZPAqhrrEpRtonnrXdghZg1irNg4qrjboCXrpybLWVs55cW2N3juhspVJiO0JBvYJT8SYsJpc8OQSnsA==
+
+prettier@^3.5.3:
+  version "3.5.3"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.5.3.tgz#4fc2ce0d657e7a02e602549f053b239cb7dfe1b5"
+  integrity sha512-QQtaxnoDJeAkDvDKWCLiwIXkTgRhwYDEQCghU9Z6q03iyek/rxRh/2lC3HB7P8sWT2xC/y5JDctPLBIGzHKbhw==
 
 queue-microtask@^1.2.2:
   version "1.2.3"

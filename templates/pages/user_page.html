@@ -1,13 +1,13 @@
-{% extends "layouts/main_layout.html" %}
-{% block title %}{{ page.page_title }}{% endblock %}
-{% block description %}{{ page.user_shortBio }}{% endblock %}
+{% extends "layouts/main_layout.html" %} {% block title %}{{ page.page_title
+}}{% endblock %} {% block description %}{{ page.user_shortBio }}{% endblock %}
 {% block children %}
-<div class="max-w-3xl mx-auto mt-12">
-    <header class="w-2/3">
-        <section class="space-y-3">
-            <h1 class="text-2xl font-semibold">{{ page.user_name }}</h1>
-            <p class="text-neutral-600 text-sm font-mono">{{ page.user_shortBio }}</p>
-        </section>
-    </header>
+<div class="mx-auto mt-12 max-w-3xl">
+  <header class="w-2/3">
+    <section class="space-y-3">
+      <h1 class="text-2xl font-semibold">{{ page.user_name }}</h1>
+      <p class="font-mono text-neutral-600">{{ page.user_shortBio }}</p>
+    </section>
+    <section></section>
+  </header>
 </div>
 {% endblock %}
