@@ -1,63 +1,64 @@
-{% from "macros/link_macro.html" import render_link %}
-{% extends "layouts/dashboard_layout.html" %} {% block content %}
+{% from "macros/link_macro.html" import render_link %} {% extends "layouts/dashboard_layout.html" %}
+{% block content %}
 <main class="space-y-8">
-    <section class="flex items-center gap-6">
-        <div class="flex items-center gap-2">
-            <h2 class="text-xl font-semibold">Mis Páginas</h2>
-            <i class="fa-solid fa-earth-americas text-neutral-600"></i>
+  <section class="flex items-center gap-6">
+    <div class="flex items-center gap-2">
+      <h2 class="text-xl font-semibold">Mis Páginas</h2>
+      <i class="fa-solid fa-earth-americas text-neutral-600"></i>
+    </div>
+    {{ render_link(url_for("dashboard.create_page_step_1"), "Crear", "fa-solid fa-plus") }}
+  </section>
+  <section class="space-y-3 font-mono text-sm text-neutral-600">
+    <p>
+      Asegúrate de que la <b>información</b> que compartes <b>sea real y precisa.</b> Recuerda que
+      este portafolio puede ser visto por reclutadores, colegas y otros profesionales.
+      <b>¡Cuida tu reputación digital!</b>
+    </p>
+    <p>
+      <b>Portafy aún está en desarrollo.</b>
+      Aunque trabajamos para que todo funcione bien,
+      <b>pueden ocurrir errores o fallos inesperados.</b>
+      Si necesitas un portafolio para un uso profesional inmediato, te recomendamos crear uno por tu
+      cuenta o usar herramientas más consolidadas.
+    </p>
+  </section>
+  <section>
+    {% if pages|length > 0 %}
+    <ul class="grid grid-cols-1 gap-4 md:grid-cols-2">
+      {% for page in pages %}
+      <li class="rounded-md border border-neutral-600 p-2">
+        <span class="font-semibold">{{ page.page_title }}</span>
+        <p class="font-mono text-sm">{{ page.page_desc }}</p>
+        <a href="/{{ page.page_url }}" class="text-sm underline">/{{page.page_url}}</a>
+        <div class="mt-2 flex gap-2">
+          <a
+            class="rounded-md bg-red-500 p-2 text-sm text-white transition-opacity hover:opacity-90"
+            href=""
+          >
+            <i class="fa-solid fa-trash-can"></i>
+            <span>Borrar</span>
+          </a>
+          <a
+            class="rounded-md bg-blue-500 p-2 text-sm text-white transition-opacity hover:opacity-90"
+            href=""
+          >
+            <i class="fa-solid fa-pencil"></i>
+            <span>Editar</span>
+          </a>
+          <a
+            class="rounded-md bg-yellow-500 p-2 text-sm text-white transition-opacity hover:opacity-90"
+            href=""
+          >
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>Cambiar a privado</span>
+          </a>
         </div>
-        {{ render_link(url_for("dashboard.create_page_step_1"), "Crear", "fa-solid fa-plus") }}
-    </section>
-    <section class="text-sm font-mono text-neutral-600 space-y-3">
-        <p>
-            Asegúrate de que la <b>información</b> que compartes <b>sea real y precisa.</b>
-            Recuerda que este portafolio puede ser visto por reclutadores,
-            colegas y otros profesionales. <b>¡Cuida tu reputación digital!</b>
-        </p>
-        <p>
-            <b>Portafy aún está en desarrollo.</b>
-            Aunque trabajamos para que todo funcione bien, <b>pueden ocurrir errores o fallos inesperados.</b>
-            Si necesitas un portafolio para un uso profesional inmediato, te recomendamos crear uno por tu cuenta o
-            usar herramientas más consolidadas.
-        </p>
-    </section>
-    <section>
-        {% if pages|length > 0 %}
-            <ul class="grid grid-cols-1 gap-4 md:grid-cols-2">
-                {% for page in pages %}
-                <li class="p-2 rounded-md border border-neutral-600">
-                    <span class="font-semibold">{{ page.page_title }}</span>
-                    <p class="font-mono text-sm">{{ page.page_desc }}</p>
-                    <a href="/{{ page.page_url }}" class="underline text-sm">/{{page.page_url}}</a>
-                    <div class="flex mt-2 gap-2">
-                        <a
-                            class="p-2 bg-red-500 text-sm text-white rounded-md hover:opacity-90 transition-opacity"
-                            href=""
-                        >
-                            <i class="fa-solid fa-trash-can"></i>
-                            <span>Borrar</span>
-                        </a>
-                        <a
-                            class="p-2 bg-blue-500 text-sm text-white rounded-md hover:opacity-90 transition-opacity"
-                            href=""
-                        >
-                            <i class="fa-solid fa-pencil"></i>
-                            <span>Editar</span>
-                        </a>
-                        <a
-                            class="p-2 bg-yellow-500 text-sm text-white rounded-md hover:opacity-90 transition-opacity"
-                            href=""
-                        >
-                            <i class="fa-solid fa-shield-halved"></i>
-                            <span>Cambiar a privado</span>
-                        </a>
-                    </div>
-                </li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <span role="alert" class="text-lg font-semibold">Aún no tienes ninguna página.</span>
-        {% endif %}
-    </section>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <span role="alert" class="text-lg font-semibold">Aún no tienes ninguna página.</span>
+    {% endif %}
+  </section>
 </main>
 {% endblock %}

@@ -1,8 +1,7 @@
-{% macro render_button(label="Entrar",icon="fa-solid
-fa-arrow-up-right-from-square", id="") %}
+{% macro render_button(label="Entrar",icon="fa-solid fa-arrow-up-right-from-square", id="") %}
 <button
-  id="{{ id }}"
   class="inline-flex items-center gap-2 rounded-md border-2 border-neutral-600 bg-white px-2 py-1 font-mono text-sm text-neutral-600 transition-colors hover:text-black"
+  id="{{ id }}"
 >
   <span>{{ label }}</span>
   <i class="{{ icon }}"></i>
