@@ -45,10 +45,9 @@ class DashBoardController:
                     "user_shortBio": user_shortBio,
                     "user_name": user_name,
                     "page_url": page_url,
+                    "isPublic": True,
                     "user_id": ObjectId(session["user_id"])
                 })
-
-                print(str(page_id))
 
                 return redirect(url_for("dashboard.home_page"))
                 # cambiar al siguente paso, y guardar el id de la pagina
@@ -57,3 +56,16 @@ class DashBoardController:
                 flash("Hubo un error de nuestra parte; intenta más tarde.")
 
         return render_template(path_template)
+
+    @classmethod
+    def change_visibility(cls, page_id):
+        try:
+            page = PageModel.get_by_id(ObjectId(page_id))
+            if str(page["user_id"]) != session["user_id"]:
+                flash("El ID pertenece a una página que no es tuya")
+                return redirect(url_for("dashboard.home_page"))
+            PageModel.change_visibility(page["_id"], not page["isPublic"])
+            return redirect(url_for("dashboard.home_page"))
+        except:
+            flash("Hubo un error")
+            return redirect(url_for("dashboard.home_page"))

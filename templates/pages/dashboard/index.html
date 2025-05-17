@@ -47,10 +47,12 @@
           </a>
           <a
             class="rounded-md bg-yellow-500 p-2 text-sm text-white transition-opacity hover:opacity-90"
-            href=""
+            href="{{ url_for('dashboard.change_visibility', page_id=page._id) }}"
           >
             <i class="fa-solid fa-shield-halved"></i>
-            <span>Cambiar a privado</span>
+            <span>
+              {%if page.isPublic%} Cambiar a privado {% else %} Cambiar a público {% endif %}
+            </span>
           </a>
         </div>
       </li>

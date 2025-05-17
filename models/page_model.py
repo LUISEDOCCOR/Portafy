@@ -12,3 +12,11 @@ class PageModel:
     @classmethod
     def get_by_user_id (cls, user_id):
         return list(db.pages.find({"user_id": user_id}))
+
+    @classmethod
+    def get_by_id(cls, id):
+        return db.pages.find_one({"_id": id})
+
+    @classmethod
+    def change_visibility (cls, id, value):
+        db.pages.update_one({"_id": id}, {"$set": {"isPublic": value}})

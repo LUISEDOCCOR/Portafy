@@ -17,3 +17,10 @@ def home_page():
 @requires_login
 def create_page_step_1():
     return DashBoardController.create_page_step_1()
+
+# /page/----- para acciones realcionadas con las páginas
+@bp.get("/page/edit/<page_id>")
+@requires_login
+def change_visibility (page_id):
+    print(type(page_id))
+    return DashBoardController.change_visibility(page_id)
