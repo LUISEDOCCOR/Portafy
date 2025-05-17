@@ -11,6 +11,6 @@ class PagesController:
     @classmethod
     def user_page(cls, url):
         page = PageModel.get_by_url(url)
-        if not page:
+        if not page or not page["isPublic"]:
             return redirect(url_for("pages.home_page"))
         return render_template("/pages/user_page.html", page=page)
